@@ -66,6 +66,9 @@ class Student
     LIMIT 1 
     SQL
     
+    DB[:conn].execute(sql, selection_size).map do |row|
+      if row <= selection_size
+      self.new_from_db(row)
   end
   
   def self.first_student_in_grade_10
