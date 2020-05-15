@@ -63,11 +63,10 @@ class Student
     SELECT * 
     FROM students
     WHERE grade = 10 
-    LIMIT 1 
+    LIMIT ?
     SQL
     
-    DB[:conn].execute(sql, selection_size).map do |row, id|
-      if row <= selection_size
+    DB[:conn].execute(sql, selection_size).map do |row|
       self.new_from_db(row)
     end
   end
