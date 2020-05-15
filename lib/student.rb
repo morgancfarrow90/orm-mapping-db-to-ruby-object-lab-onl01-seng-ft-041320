@@ -69,6 +69,7 @@ class Student
     DB[:conn].execute(sql, selection_size).map do |row|
       if row <= selection_size
       self.new_from_db(row)
+    end
   end
 end
   
